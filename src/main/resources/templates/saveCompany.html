@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD Company</title>
+</head>
+<body>
+<div style="float: bottom">
+Add Company
+</div>
+<div style="text-align: center">
+
+    <form action="/addCompany" method="post">
+        <label for="name">Company name:</label><br>
+        <input type="text" name="name" id="name"><br>
+        <label for="size">Size:</label><br>
+        <input type="text" name="size" id="size"><br>
+        <label for="address">Address:</label><br>
+        <input type="text" name="address" id="address">
+        <br>
+        <br>
+
+        <input type="submit" value="ADD COMPANY">
+    </form>
+</div>
+</body>
+</html>

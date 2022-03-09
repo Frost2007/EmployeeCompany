@@ -5,42 +5,96 @@
     <title>Employees Page</title>
 </head>
 <style>
-    table th, td {
-        border: 1px solid black;
+    table {
         border-collapse: collapse;
-        padding: 10px;
+        width: 100%;
+    }
 
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+
+    th {
+        background-color: #04AA6D;
+        color: #05050c;
+    }
+</style>
+<body>
+<style>
+
+    body {
+        background-image: url('https://i2.wp.com/files.123freevectors.com/wp-content/original/143084-abstract-green-wave-business-background-vector-image.jpg?w=800&q=95');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
 </style>
-<body>
-<a href="/addEmployee">Add Employee</a><br>
-All Employees:
+<style>
+    body {
+        font-family: Copperplate, Papyrus, fantasy;
+    }
+</style>
+<style>
+    a:link, a:visited {
+        background-color: green;
+        color: black;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+
+    }
+
+    a:hover, a:active {
+        background-color: green;
+    }
+</style>
+
+
+<div>
+    <h1>ALL EMPLOYEES LIST</h1><br>
+</div>
+<a href="/addEmployee">ADD EMPLOYEE</a> <a href="/" style="float: right">BACK</a>
+<br>
+<br>
+
+
 <table>
     <tr>
 
         <th>Name</th>
         <th>Surname</th>
-        <th>email</th>
-        <th>phone</th>
-        <th>salary</th>
-        <th>position</th>
+<!--        <th>email</th>-->
+<!--        <th>phone</th>-->
+<!--        <th>salary</th>-->
+<!--        <th>position</th>-->
         <th>Company</th>
-        <th>action
-        </th>
-
+<!--        <th>image</th>-->
+        <th>view</th>
+        <th>action</th>
     </tr>
     <tr th:each="employee:${employees}">
         <td th:text="${employee.name}"></td>
         <td th:text="${employee.surname}"></td>
-        <td th:text="${employee.email}"></td>
-        <td th:text="${employee.phone}"></td>
-        <td th:text="${employee.salary}"></td>
-        <td th:text="${employee.position}"></td>
+<!--        <td th:text="${employee.email}"></td>-->
+<!--        <td th:text="${employee.phone}"></td>-->
+<!--        <td th:text="${employee.salary}"></td>-->
+<!--        <td th:text="${employee.position}"></td>-->
         <td th:text="${employee.getCompany().name}"></td>
-        <td><a th:href="@{'/deleteEmployee/'+${employee.id}}">DELETE</a>  </td>
+<!--       <td> <div th:width="100" th:height="100">-->
+<!--            <img th:if="${employee.picUrl !=null}" th:src="@{/getImage(picName=${employee.picUrl})}">-->
+<!--            </div>-->
+<!--       </td>-->
+        <td><a th:href="@{'/view/'+${employee.id}}" th:align="250">More Information</a></td>
+        <td><a th:href="@{'/deleteEmployee/'+${employee.id}}" th:align="350">DELETE</a></td>
 
     </tr>
 </table>
+
 </body>
 </html>

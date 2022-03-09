@@ -23,6 +23,7 @@ public class Employee {
     private String phone;
     private int salary;
     private String position;
+    private String picUrl;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "company_id")
     private Company company;

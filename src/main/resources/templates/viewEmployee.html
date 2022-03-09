@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Copperplate, Papyrus, fantasy;
+        }
+    </style>
+</head>
+<style>
+
+    body {
+        background-image: url('https://techstory.in/wp-content/uploads/2018/01/A-Research-On-Employee-Background-Verification-Trends-for-Startups.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+</style>
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 40%;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+        img {
+            border-radius: 10px 10px 0 0;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+<style>
+    a:link, a:visited {
+        background-color: green;
+        color: black;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+
+    }
+
+    a:hover, a:active {
+        background-color: green;
+    }
+</style>
+</head>
+<body >
+
+
+
+<h2>EMPLOYEE INFORMATION</h2> <a th:href="@{'/employees'}" > BACK</a>
+<div class="card">
+    <img th:if="${employee.picUrl ==null}" src="/templates/images/avatar.jpg" width="600" >
+    <img th:if="${employee.picUrl !=null}" th:src="@{/getImage(picName=${employee.picUrl})}" width="600px"  >
+    <div class="container">
+        <h3 th:text="${employee.name.toUpperCase()+' '+employee.surname.toUpperCase()}"><b ></b></h3>
+        <p th:text="${'COMPANY:'+employee.company.name}"></p>
+        <p th:text="${'position: '+employee.position}"></p>
+        <p th:text="${'email: '+employee.email}"></p>
+        <p th:text="${'phone: '+employee.phone}"></p>
+        <p th:text="${'salary:'+employee.salary +'AMD'}"></p>
+    </div>
+</div>
+
+</body>
+</html>

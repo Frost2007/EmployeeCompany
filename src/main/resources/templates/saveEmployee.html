@@ -3,15 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Employee</title>
+    <style>
+        body {
+            font-family: Copperplate, Papyrus, fantasy;
+        }
+    </style>
+    <style>
+        a:link, a:visited {
+            background-color: green;
+            color: black;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+
+        }
+
+        a:hover, a:active {
+            background-color: green;
+        }
+    </style>
+    <style>
+
+        body {
+            background-image: url('https://www.techfunnel.com/wp-content/uploads/2020/09/employee-background-check.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+   <a href="/employees" style="float: right">BACK</a><br> <h1>ADD EMPLOYEE</h1>
+
+</head>
 </head>
 <body>
 <body>
-<div style="float: bottom">
-    Add employee
-</div>
+
+
+<br>
 <div style="text-align: center">
 
-    <form action="/addEmployee" method="post">
+
+    <form action="/addEmployee" method="post" enctype="multipart/form-data">
         <label for="name">name:</label><br>
         <input type="text" name="name" id="name"><br>
         <label for="surname">surname:</label><br>
@@ -26,8 +59,10 @@
         <input type="text" name="position" id="position"><br>
         Company:
         <select name="company.id">
-           <option th:each="company:${companies}" th:text="${company.name}" th:value="${company.id}"> </option>
+            <option th:each="company:${companies}" th:text="${company.name}" th:value="${company.id}"></option>
         </select><br>
+        <label for="picture">image:</label><br>
+        <input type="file" name="picture" id="picture">
         <br>
 
         <br>
@@ -35,5 +70,6 @@
         <input type="submit" value="ADD EMPLOYEE">
     </form>
 </div>
+</body>
 </body>
 </html>

@@ -9,4 +9,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     @Transactional
     void deleteEmployeesByCompanyId(int id);
+
 }
